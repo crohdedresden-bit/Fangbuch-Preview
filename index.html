@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#126b42">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Fangbuch – Code001 Vorschau</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="splash" class="splash" aria-label="Ladebildschirm">
+      <img class="splash-image" src="assets/splash-lake.jpg" alt="">
+      <div class="splash-overlay"></div>
+
+      <div class="splash-content">
+        <div class="fish-logo" aria-hidden="true">
+          <svg viewBox="0 0 120 70" role="img">
+            <path d="M22 35c15-23 48-26 70-8l18-13-4 21 4 21-18-13C70 61 37 58 22 35Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="76" cy="29" r="3.8" fill="currentColor"/>
+            <path d="M24 35H8" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <h1>Fangbuch</h1>
+        <p class="splash-subtitle">Dein digitales Fangbuch</p>
+
+        <div class="splash-loader">
+          <div class="loader-label">Daten werden geladen …</div>
+          <div class="progress-track">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="code-label">Code001</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="application" class="application" aria-hidden="true">
+      <main class="screen-container">
+        <section id="view-days" class="view active">
+          <header class="topbar">
+            <span class="brand-small">Fangbuch</span>
+            <h2>Angeltage</h2>
+          </header>
+
+          <div class="content">
+            <article class="card season-card">
+              <div class="status-icon" aria-hidden="true">🔓</div>
+              <div class="status-copy">
+                <div class="eyebrow">Aktive Saison</div>
+                <div class="status-title">Noch nicht angelegt</div>
+              </div>
+              <button class="secondary-button" data-tab="season">Saison</button>
+            </article>
+
+            <button class="primary-button" id="new-day-button">
+              <span class="plus">＋</span>
+              Neuer Angeltag
+            </button>
+
+            <article class="card empty-state">
+              <div class="empty-icon" aria-hidden="true">🗓️</div>
+              <h3>Noch keine Angeltage</h3>
+              <p>Die Erfassung von Saisons und Angeltagen folgt in den nächsten Entwicklungsständen.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="view-report" class="view">
+          <header class="topbar">
+            <h2>Auswertung</h2>
+          </header>
+          <div class="content">
+            <article class="card empty-state">
+              <div class="empty-icon" aria-hidden="true">📊</div>
+              <h3>Noch keine Auswertung</h3>
+              <p>Sobald Angeltage und Fänge gespeichert sind, wird hier die Jahresauswertung nach Fangbuch-Saison angezeigt.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="view-season" class="view">
+          <header class="topbar">
+            <h2>Saison</h2>
+          </header>
+          <div class="content">
+            <article class="card empty-state">
+              <div class="empty-icon" aria-hidden="true">📅</div>
+              <h3>Aktuell keine aktive Saison</h3>
+              <p>Die persistente Saisonverwaltung wird im nächsten Entwicklungsstand umgesetzt.</p>
+            </article>
+
+            <button class="primary-button" id="new-season-button">
+              <span class="plus">＋</span>
+              Neue Saison anlegen
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <nav class="tabbar" aria-label="Hauptnavigation">
+        <button class="tab active" data-tab="days" aria-label="Angeltage">
+          <span class="tab-icon">🗓️</span>
+          <span>Angeltage</span>
+        </button>
+        <button class="tab" data-tab="report" aria-label="Auswertung">
+          <span class="tab-icon">📊</span>
+          <span>Auswertung</span>
+        </button>
+        <button class="tab" data-tab="season" aria-label="Saison">
+          <span class="tab-icon">⚙️</span>
+          <span>Saison</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <dialog id="info-dialog" class="info-dialog">
+    <div class="dialog-content">
+      <h3 id="dialog-title">Code001</h3>
+      <p id="dialog-text"></p>
+      <button class="primary-button compact" id="dialog-close">OK</button>
+    </div>
+  </dialog>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
