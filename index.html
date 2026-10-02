@@ -1,43 +1,84 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Fangbuch – Code002 Vorschau</title>
-  <link rel="stylesheet" href="css/app.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d5f65">
+<title>Fangbuch Code003</title>
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-      <h1>Fangbuch – Code002 Vorschau</h1>
-      <p>Diese Vorschau nutzt bewusst den freigegebenen Designentwurf ohne zusätzliche Designänderungen.</p>
-    </header>
+<div class="phone" id="phone">
+  <section class="splash" id="splash">
+    <div class="splash-logo"><div class="fish">◖</div><div class="waves">≋</div></div>
+    <h1>Fangbuch</h1>
+    <div class="loader"><div>Daten werden geladen…</div><div class="track"><div class="bar"></div></div><small>Code003</small></div>
+  </section>
 
-    <div class="device-area">
-      <div class="device">
-        <img id="screenImage" src="assets/screen_splash.png" alt="Fangbuch Vorschau Bildschirm">
+  <main id="app" class="app hidden">
+    <section class="screen active" id="homeScreen">
+      <div class="hero home-hero">
+        <div class="brand-row"><div class="brand-icon">◖≋</div><div><h1>Fangbuch</h1><p>Deine Angelerlebnisse.<br>Ein Leben lang.</p></div></div>
       </div>
-    </div>
-
-    <section class="controls">
-      <button class="chip active" data-screen="home">Start</button>
-      <button class="chip" data-screen="new_day">Neuer Angeltag</button>
-      <button class="chip" data-screen="catch_entry">Fang erfassen</button>
-      <button class="chip" data-screen="fishing_day">Angeltag</button>
-      <button class="chip" data-screen="hints">Hinweise</button>
-      <button class="chip" data-screen="report">Auswertung</button>
-      <button class="chip" data-screen="season">Saison</button>
+      <div class="page-content lift">
+        <div class="season-card" id="homeSeasonCard">
+          <div><span class="eyebrow">AKTIVE SAISON</span><div class="season-main"><strong>2027</strong><span class="pill green">● aktiv</span></div><p>15.11.2026 – 31.12.2027</p></div><button class="round" data-tab="season">›</button>
+        </div>
+        <div class="quick-grid">
+          <button class="quick green-card" id="openNewDay"><span class="qicon">▣＋</span><b>Neuer<br>Angeltag</b><i>›</i></button>
+          <button class="quick blue-card" data-tab="report"><span class="qicon">▥</span><b>Jahres-<br>auswertung</b><i>›</i></button>
+          <button class="quick green-card" data-tab="season"><span class="qicon">⚙</span><b>Saison &<br>Einstellungen</b><i>›</i></button>
+        </div>
+        <div class="section-title"><h2>Letzte Angeltage</h2></div>
+        <div class="list-card" id="recentList"></div>
+      </div>
     </section>
 
-    <section class="notes">
-      <h2>Hinweis</h2>
-      <p>
-        Beim Öffnen wird zuerst das freigegebene Splash-Startbild angezeigt.
-        Danach wechselt die Vorschau automatisch auf den Startbildschirm.
-        Über die Schaltflächen darunter kannst du die weiteren abgestimmten Screens direkt aufrufen.
-      </p>
+    <section class="screen" id="newDayScreen">
+      <div class="hero sub-hero"><button class="back" data-back="home">‹</button><h1>Neuer Angeltag</h1><p>Halte deinen nächsten<br>Angeltag fest.</p></div>
+      <div class="page-content lift">
+        <div class="form-card">
+          <label>Datum</label><input id="dayDate" type="date">
+          <label>Gewässernummer</label><input id="waterCode" type="text" placeholder="z. B. D02-101" maxlength="20">
+          <div class="error" id="formError"></div>
+          <button class="gradient-button" id="saveDay">Angeltag speichern <span>→</span></button>
+          <button class="secondary-wide" data-back="home">Abbrechen</button>
+        </div>
+        <div class="info-card"><span>ⓘ</span><p>Nach dem Speichern können Fänge hinzugefügt werden. Ein Angeltag ohne Fang ist erlaubt.</p></div>
+      </div>
     </section>
-  </div>
-  <script src="js/app.js"></script>
-</body>
-</html>
+
+    <section class="screen" id="dayDetailScreen">
+      <div class="hero detail-hero"><button class="back" data-back="home">‹</button><h1>Angeltag</h1></div>
+      <div class="page-content lift">
+        <div class="day-summary"><div><span class="symbol">▣</span><strong id="detailDate"></strong><small id="detailWeekday"></small></div><div class="sep"></div><div><span class="symbol">●</span><strong id="detailWater"></strong><small>Gewässernummer</small></div></div>
+        <div class="section-title"><h2>Gefangene Fische</h2><span class="counter">0 Einträge</span></div>
+        <div class="empty-catches"><div>🐟</div><b>Noch keine Fänge</b><p>Dieser Angeltag ist gültig und bleibt auch ohne Fang gespeichert.</p></div>
+        <button class="action green-action" id="addCatch">＋ <b>Fang hinzufügen</b><span>›</span></button>
+        <button class="action blue-action" id="editDay">✎ <b>Angeltag bearbeiten</b><span>›</span></button>
+        <button class="action red-action" id="deleteDay">▱ <b>Angeltag löschen</b><span>›</span></button>
+      </div>
+    </section>
+
+    <section class="screen" id="editDayScreen">
+      <div class="hero sub-hero"><button class="back" data-back="detail">‹</button><h1>Angeltag bearbeiten</h1><p>Datum oder Gewässernummer ändern.</p></div>
+      <div class="page-content lift"><div class="form-card"><label>Datum</label><input id="editDate" type="date"><label>Gewässernummer</label><input id="editWater" type="text"><div class="error" id="editError"></div><button class="gradient-button" id="saveEdit">Änderungen speichern <span>→</span></button><button class="secondary-wide" data-back="detail">Abbrechen</button></div></div>
+    </section>
+
+    <section class="screen" id="reportScreen">
+      <div class="hero report-hero"><h1>▥ Jahresauswertung</h1><p>Deine Fangergebnisse<br>auf einen Blick.</p></div>
+      <div class="page-content lift"><div class="season-select">▣ <b>Saison 2027</b>⌄</div><div class="empty-catches"><div>▥</div><b>Auswertung folgt mit den Fängen</b><p>Code003 setzt zunächst den Angeltag vollständig um.</p></div></div>
+    </section>
+
+    <section class="screen" id="seasonScreen">
+      <div class="hero season-hero"><h1>▣ Saison</h1><p>Verwalte deine Angelsaisons.<br>Alle Daten sicher im Blick.</p></div>
+      <div class="page-content lift"><div class="season-card"><div><span class="eyebrow">AKTUELLE SAISON</span><div class="season-main"><strong class="season-label">Saison 2027</strong><span class="pill green">● aktiv</span></div><p>Start: 15.11.2026<br>Ende: 31.12.2027</p></div></div><button class="gradient-button" id="submitSeason">Fangbuch abgegeben →</button><div class="warning-card"><b>Nach der Abgabe werden die Daten eingefroren.</b><p>Es können keine weiteren Einträge erstellt oder bearbeitet werden.</p></div></div>
+    </section>
+
+    <nav class="tabs" id="tabs"><button data-tab="home" class="active">▣<span>Angeltage</span></button><button data-tab="report">▥<span>Auswertung</span></button><button data-tab="season">⚙<span>Saison</span></button></nav>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<div class="modal hidden" id="modal"><div><h3 id="modalTitle"></h3><p id="modalText"></p><div class="modal-actions"><button id="modalCancel">Abbrechen</button><button id="modalConfirm">Bestätigen</button></div></div></div>
+<script src="js/app.js"></script>
+</body></html>

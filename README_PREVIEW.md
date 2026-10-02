@@ -1,20 +1,5 @@
-# Fangbuch – Code002 Preview
+# Fangbuch Preview – Code003
 
-## Zweck
+Interaktive Vorschau für GitHub Pages.
 
-Diese Vorschau ist für das öffentliche GitHub-Pages-Repository gedacht.
-
-Sie hält sich visuell an den freigegebenen Entwurf und zeigt:
-
-- Splashscreen
-- Startbildschirm
-- Neuer Angeltag
-- Fang erfassen
-- Angeltag-Detail
-- Hinweise im Eintrag
-- Saison
-- Jahresauswertung
-
-## Einbau in das Vorschau-Repository
-
-Die Dateien aus diesem Ordner direkt in das Root-Verzeichnis von `Fangbuch-Preview` kopieren.
+Neu in Code003: Angeltage anlegen, ohne Fang speichern, anzeigen, bearbeiten und löschen. Die Preview verwendet Browser-LocalStorage und bildet denselben Bedienfluss wie die iOS-App ab. Die Fangerfassung ist noch bewusst deaktiviert.
