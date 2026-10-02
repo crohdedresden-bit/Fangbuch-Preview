@@ -3,111 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#126b42">
-  <title>Fangbuch – Code001 Vorschau</title>
+  <title>Fangbuch – Code002 Vorschau</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="phone-shell">
-    <div id="splash" class="splash">
-      <img class="splash-image" src="assets/splash-lake.jpg" alt="">
-      <div class="splash-overlay"></div>
+  <div class="page">
+    <header class="header">
+      <h1>Fangbuch – Code002 Vorschau</h1>
+      <p>Diese Vorschau nutzt bewusst den freigegebenen Designentwurf ohne zusätzliche Designänderungen.</p>
+    </header>
 
-      <div class="splash-content">
-        <div class="fish-mark" aria-hidden="true">
-          <svg viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 35c15-23 48-26 70-8l18-13-4 21 4 21-18-13C70 61 37 58 22 35Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
-            <circle cx="76" cy="29" r="3.8" fill="currentColor"/>
-            <path d="M24 35H8" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <h1>Fangbuch</h1>
-        <p class="subtitle">Dein digitales Fangbuch</p>
-
-        <div class="loader-block">
-          <div class="loader-label">Daten werden geladen …</div>
-          <div class="progress-track">
-            <div class="progress-bar"></div>
-          </div>
-          <div class="version-label">Code001</div>
-        </div>
+    <div class="device-area">
+      <div class="device">
+        <img id="screenImage" src="assets/screen_splash.png" alt="Fangbuch Vorschau Bildschirm">
       </div>
     </div>
 
-    <div id="app" class="app" aria-hidden="true">
-      <main class="screens">
-        <section id="view-days" class="screen active">
-          <header class="topbar">
-            <div class="small-brand">Fangbuch</div>
-            <h2>Angeltage</h2>
-          </header>
+    <section class="controls">
+      <button class="chip active" data-screen="home">Start</button>
+      <button class="chip" data-screen="new_day">Neuer Angeltag</button>
+      <button class="chip" data-screen="catch_entry">Fang erfassen</button>
+      <button class="chip" data-screen="fishing_day">Angeltag</button>
+      <button class="chip" data-screen="hints">Hinweise</button>
+      <button class="chip" data-screen="report">Auswertung</button>
+      <button class="chip" data-screen="season">Saison</button>
+    </section>
 
-          <div class="content">
-            <article class="card season-card">
-              <div class="icon-box">🔓</div>
-              <div class="season-copy">
-                <div class="eyebrow">Aktive Saison</div>
-                <div class="title">Noch nicht angelegt</div>
-              </div>
-              <button class="secondary-button" data-tab="season">Saison</button>
-            </article>
-
-            <button class="primary-button" id="new-day-button">＋ Neuer Angeltag</button>
-
-            <article class="card empty-card">
-              <div class="empty-icon">🗓️</div>
-              <h3>Noch keine Angeltage</h3>
-              <p>Die Erfassung von Saisons und Angeltagen folgt in den nächsten Entwicklungsständen.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="view-report" class="screen">
-          <header class="topbar">
-            <h2>Auswertung</h2>
-          </header>
-          <div class="content">
-            <article class="card empty-card">
-              <div class="empty-icon">📊</div>
-              <h3>Noch keine Auswertung</h3>
-              <p>Sobald Angeltage und Fänge gespeichert sind, wird hier die Jahresauswertung nach Fangbuch-Saison angezeigt.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="view-season" class="screen">
-          <header class="topbar">
-            <h2>Saison</h2>
-          </header>
-          <div class="content">
-            <article class="card empty-card">
-              <div class="empty-icon">📅</div>
-              <h3>Aktuell keine aktive Saison</h3>
-              <p>Die persistente Saisonverwaltung wird im nächsten Entwicklungsstand umgesetzt.</p>
-            </article>
-
-            <button class="primary-button" id="new-season-button">＋ Neue Saison anlegen</button>
-          </div>
-        </section>
-      </main>
-
-      <nav class="tabbar">
-        <button class="tab active" data-tab="days"><span class="tab-icon">🗓️</span><span>Angeltage</span></button>
-        <button class="tab" data-tab="report"><span class="tab-icon">📊</span><span>Auswertung</span></button>
-        <button class="tab" data-tab="season"><span class="tab-icon">⚙️</span><span>Saison</span></button>
-      </nav>
-    </div>
+    <section class="notes">
+      <h2>Hinweis</h2>
+      <p>
+        Beim Öffnen wird zuerst das freigegebene Splash-Startbild angezeigt.
+        Danach wechselt die Vorschau automatisch auf den Startbildschirm.
+        Über die Schaltflächen darunter kannst du die weiteren abgestimmten Screens direkt aufrufen.
+      </p>
+    </section>
   </div>
-
-  <dialog id="info-dialog" class="info-dialog">
-    <div class="dialog-content">
-      <h3 id="dialog-title">Code001</h3>
-      <p id="dialog-text"></p>
-      <button class="primary-button compact" id="dialog-close">OK</button>
-    </div>
-  </dialog>
-
   <script src="js/app.js"></script>
 </body>
 </html>
