@@ -1,16 +1,12 @@
-# Fangbuch – Code003 Preview FIX2
+# Fangbuch Code003 Preview FIX3
 
-Dieser Stand korrigiert ausschließlich die beim UserTest von Code003 gemeldeten Darstellungsfehler.
+Korrekturstand innerhalb von Code003. Kein neuer Funktionsumfang.
 
-## Korrekturen
+FIX3 korrigiert nicht nur Schriftgrößen, sondern die Geometrie der interaktiven Overlays:
+- Eingabefelder werden vollständig überdeckt und neu aufgebaut.
+- Startseiten-Liste überdeckt die komplette Beispielkarte.
+- Detailkarte überdeckt die vollständigen Beispieltexte.
+- Empty-State bleibt vollständig innerhalb der Fangliste und kollidiert nicht mit „Fang hinzufügen“.
+- Platzhalter: `z. B. D02-101`.
 
-- Startseite: dynamische Angeltag-Zeilen ohne Text-/Attributüberlagerungen.
-- Angeltag-Detail: Leermeldung bleibt innerhalb des Fanglistenbereichs und überdeckt nicht „Fang hinzufügen“.
-- Angeltag-Detail: Anzeige „0 Einträge“ statt des Beispielwerts des LOCK-Screens.
-- Angeltag-Detail: dynamisches Datum, Wochentag und Gewässer werden sauber über die Beispielwerte gelegt.
-- Angeltag bearbeiten: keine zusätzliche große Überschrift mehr über dem LOCK-Header; derselbe Formularstil wird verwendet.
-- Platzhalter: `z. B. D02-101` bleibt in dieser Schreibweise sichtbar.
-
-## Design-Lock
-
-Die acht Referenzbilder wurden nicht verändert. Es wurde kein neues Design eingeführt.
+Die acht Design-Lock-Bilder sind unverändert.
