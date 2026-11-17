@@ -1,7 +1,16 @@
-# Fangbuch Code003 Preview – FIX1
+# Fangbuch – Code003 Preview FIX2
 
-Technische Korrektur der Code003-Preview.
+Dieser Stand korrigiert ausschließlich die beim UserTest von Code003 gemeldeten Darstellungsfehler.
 
-- Keine Designänderung.
-- Alle acht Bilder stammen unverändert aus Design-Lock v1.0.
-- Asset-, CSS- und JS-Dateien tragen eindeutige Code003/FIX1-Dateinamen, damit Browser keine alten Preview-Dateien aus dem Cache verwenden.
+## Korrekturen
+
+- Startseite: dynamische Angeltag-Zeilen ohne Text-/Attributüberlagerungen.
+- Angeltag-Detail: Leermeldung bleibt innerhalb des Fanglistenbereichs und überdeckt nicht „Fang hinzufügen“.
+- Angeltag-Detail: Anzeige „0 Einträge“ statt des Beispielwerts des LOCK-Screens.
+- Angeltag-Detail: dynamisches Datum, Wochentag und Gewässer werden sauber über die Beispielwerte gelegt.
+- Angeltag bearbeiten: keine zusätzliche große Überschrift mehr über dem LOCK-Header; derselbe Formularstil wird verwendet.
+- Platzhalter: `z. B. D02-101` bleibt in dieser Schreibweise sichtbar.
+
+## Design-Lock
+
+Die acht Referenzbilder wurden nicht verändert. Es wurde kein neues Design eingeführt.

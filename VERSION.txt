@@ -1,3 +1,3 @@
-Code003 Preview FIX1
-Design-Lock v1.0
-Cache-Busting: eindeutige Asset-Dateinamen
+Code003 Preview FIX2
+Design-Lock: v1.0 (unverändert)
+Umfang: Layout-/Darstellungsfix Angeltag-Modul

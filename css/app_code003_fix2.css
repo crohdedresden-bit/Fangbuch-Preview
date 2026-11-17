@@ -1,0 +1,47 @@
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#eef5f4;color:#071b3f}
+body{display:flex;justify-content:center;align-items:flex-start;padding:12px}
+.preview-shell{width:min(100%,941px);display:flex;flex-direction:column;align-items:center;gap:10px}
+.phone-art{position:relative;width:min(100%,calc((100vh - 110px)*.5628));aspect-ratio:941/1672;container-type:inline-size}
+.phone-art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.overlay{position:absolute;inset:0}
+.hotspot{position:absolute;border:0;background:transparent;cursor:pointer;padding:0}
+.hotspot:focus-visible{outline:3px solid #1c93d1;border-radius:16px}
+.field{position:absolute;border:1px solid rgba(175,195,210,.8);border-radius:12px;background:rgba(255,255,255,.98);font:600 3.65cqw/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#071b3f;padding:0 2.7cqw;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+.field.water{text-transform:uppercase}
+.field.water::placeholder{text-transform:none;color:#8794a7;opacity:1}
+.error-note{position:absolute;color:#c7272f;font-weight:700;font-size:2.65cqw;background:#fff8f8;border-radius:9px;padding:.8cqw 1.5cqw}
+
+/* Startseite: dynamische Liste ersetzt ausschließlich die Beispiel-Liste im LOCK-Bild. */
+.dynamic-home-list{position:absolute;left:12.15%;top:63.05%;width:74.6%;height:21.65%;background:#fff;border-radius:3.1cqw;padding:0 3.2%;box-shadow:0 1.3cqw 4.5cqw rgba(0,45,80,.08);overflow:hidden}
+.dynamic-home-list .row{height:33.333%;display:grid;grid-template-columns:26% 1px 38% 27% 3%;align-items:center;column-gap:1.5%;border-bottom:1px solid #e3e9ec;color:#071b3f;cursor:pointer}
+.dynamic-home-list .row:last-child{border-bottom:0}
+.dynamic-home-list .date strong,.dynamic-home-list .water-copy strong{display:block;font-size:3.35cqw;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dynamic-home-list small{display:block;color:#758197;font-size:2.55cqw;line-height:1.05;margin-top:.7cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dynamic-home-list .sep{height:58%;background:#dce4e8}
+.dynamic-home-list .water{display:flex;align-items:center;gap:1.7cqw;min-width:0}
+.dynamic-home-list .water-copy{min-width:0}
+.dynamic-home-list .pin-icon{position:relative;width:4.2cqw;height:4.2cqw;flex:0 0 4.2cqw;border-radius:50% 50% 50% 0;background:#68778b;transform:rotate(-45deg);margin-left:.2cqw}
+.dynamic-home-list .pin-icon::after{content:"";position:absolute;width:1.35cqw;height:1.35cqw;border-radius:50%;background:#fff;left:1.42cqw;top:1.42cqw}
+.dynamic-home-list .state{display:flex;align-items:center;gap:1.2cqw;color:#6c788b;font-weight:700;font-size:2.9cqw;line-height:1;white-space:nowrap;min-width:0}
+.dynamic-home-list .fish-icon{position:relative;width:4.7cqw;height:2.55cqw;flex:0 0 4.7cqw;border-radius:55% 48% 48% 55%;background:#6c788b}
+.dynamic-home-list .fish-icon::after{content:"";position:absolute;left:-1.65cqw;top:.42cqw;border-top:.88cqw solid transparent;border-bottom:.88cqw solid transparent;border-right:1.9cqw solid #6c788b}
+.dynamic-home-list .chev{font-size:4.2cqw;color:#64758a;text-align:right;line-height:1}
+
+/* Angeltag-Detail: nur dynamische Werte und der leere Fangbereich werden ersetzt. */
+.detail-value{position:absolute;background:#fff;color:#071b3f;font-weight:800;display:flex;align-items:center;padding:0 .5cqw;font-size:3.45cqw;line-height:1;white-space:nowrap;overflow:hidden}
+.detail-subvalue{position:absolute;background:#fff;color:#718095;font-weight:500;display:flex;align-items:center;padding:0 .5cqw;font-size:2.8cqw;line-height:1;white-space:nowrap;overflow:hidden}
+.detail-count{position:absolute;left:70.15%;top:34.45%;width:15.9%;height:3.55%;display:flex;align-items:center;justify-content:center;background:#f4f6f7;border-radius:999px;color:#66758a;font-size:2.85cqw;z-index:5}
+.detail-list-mask{position:absolute;left:11.9%;top:38.35%;width:74.7%;height:22.35%;background:#fff;border-radius:3.2cqw;box-shadow:0 1.1cqw 4cqw rgba(0,55,75,.055);display:flex;align-items:center;justify-content:center;text-align:center;padding:4.5cqw;z-index:4}
+.detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:88%;color:#66758a}
+.detail-empty .fish-icon{position:relative;width:9.4cqw;height:5cqw;border-radius:55% 48% 48% 55%;background:#168c70;margin-bottom:2.2cqw}
+.detail-empty .fish-icon::after{content:"";position:absolute;left:-3.2cqw;top:.85cqw;border-top:1.65cqw solid transparent;border-bottom:1.65cqw solid transparent;border-right:3.7cqw solid #168c70}
+.detail-empty strong{font-size:4.2cqw;line-height:1.15;color:#071b3f;margin-bottom:1.4cqw}
+.detail-empty span{font-size:2.95cqw;line-height:1.32;color:#6b7890}
+
+.modal{position:fixed;inset:0;background:rgba(0,24,45,.48);display:flex;align-items:center;justify-content:center;padding:20px;z-index:30}
+.modal.hidden{display:none}
+.modal-card{width:min(370px,100%);background:#fff;border-radius:22px;padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.28)}
+.modal-card h3{margin:0 0 8px}.modal-card p{color:#5d6a7d}.modal-actions{display:flex;gap:10px;justify-content:flex-end}.modal-actions button{border:0;border-radius:12px;padding:11px 14px;font-weight:700}.modal-actions .cancel{background:#eef2f5;color:#183d67}.modal-actions .destructive{background:#d9272f;color:#fff}
+.preview-caption{width:min(100%,680px);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;align-items:center;text-align:center;color:#526371;font-size:13px}.preview-caption strong{color:#083b58}.preview-caption button{border:1px solid #cbd9df;background:#fff;color:#184d72;border-radius:12px;padding:7px 10px;font-weight:700;cursor:pointer}
+@media(max-width:700px){body{padding:0}.preview-caption{padding:7px 10px 12px}.phone-art{width:100%;height:auto}.field{border-radius:9px}}
