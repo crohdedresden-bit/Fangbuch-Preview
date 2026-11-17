@@ -1,30 +1,66 @@
 (()=>{
-const splash=document.getElementById('splash'),app=document.getElementById('app'),tabs=document.getElementById('tabs'),toast=document.getElementById('toast');
-const screens={home:homeScreen,newDay:newDayScreen,detail:dayDetailScreen,edit:editDayScreen,report:reportScreen,season:seasonScreen};
-let days=JSON.parse(localStorage.getItem('fangbuch-preview-code003-days')||'null')||[
- {id:'d1',date:'2026-11-20',water:'D02-101'},
- {id:'d2',date:'2026-11-21',water:'D02-101'},
- {id:'d3',date:'2026-11-22',water:'D02-104'}
-];
+const img=document.getElementById('screenImage');
+const overlay=document.getElementById('overlay');
+const storeKey='fangbuch-code003-designlock-days';
+let days=JSON.parse(localStorage.getItem(storeKey)||'[]');
 let currentId=null;
-function saveLocal(){localStorage.setItem('fangbuch-preview-code003-days',JSON.stringify(days))}
-function show(name){Object.values(screens).forEach(s=>s.classList.remove('active'));screens[name].classList.add('active');tabs.style.display=['home','report','season'].includes(name)?'flex':'none';document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));}
-function showToast(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
-function dateDE(v){if(!v)return'';let [y,m,d]=v.split('-');return `${d}.${m}.${y}`}
+let editMode=false;
+const assets={splash:'assets/00_splash.png',home:'assets/01_home.png',newDay:'assets/02_new_day.png',detail:'assets/04_day_detail.png',season:'assets/05_season.png',report:'assets/06_report.png'};
+function save(){localStorage.setItem(storeKey,JSON.stringify(days))}
+function id(){return 'd'+Date.now()+Math.random().toString(16).slice(2)}
+function today(){const d=new Date();const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`}
+function deDate(v){if(!v)return'';const [y,m,d]=v.split('-');return `${d}.${m}.${y}`}
 function weekday(v){return new Intl.DateTimeFormat('de-DE',{weekday:'long'}).format(new Date(v+'T12:00:00'))}
-function renderDays(){recentList.innerHTML='';if(!days.length){recentList.innerHTML='<div class="no-days">Noch keine Angeltage vorhanden.</div>';return}days.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5).forEach(d=>{let r=document.createElement('div');r.className='day-row';r.innerHTML=`<div><strong>${dateDE(d.date)}</strong><small>${weekday(d.date)}</small></div><div class="vline"></div><div><strong>● ${d.water}</strong><small>Gewässernummer</small></div><div><small>kein Fang ›</small></div>`;r.onclick=()=>openDetail(d.id);recentList.appendChild(r)})}
-function today(){let x=new Date();let off=x.getTimezoneOffset();x=new Date(x.getTime()-off*60000);return x.toISOString().slice(0,10)}
-function openDetail(id){currentId=id;let d=days.find(x=>x.id===id);if(!d)return;detailDate.textContent=dateDE(d.date);detailWeekday.textContent=weekday(d.date);detailWater.textContent=d.water;show('detail')}
-setTimeout(()=>{splash.style.display='none';app.classList.remove('hidden');renderDays();show('home')},2100);
-document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>show(b.dataset.tab));
-document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>{if(b.dataset.back==='detail'&&currentId)openDetail(currentId);else show('home')});
-openNewDay.onclick=()=>{dayDate.value=today();waterCode.value='';formError.textContent='';show('newDay')};
-saveDay.onclick=()=>{let w=waterCode.value.trim().toUpperCase();if(!w){formError.textContent='Bitte eine Gewässernummer eingeben.';return}let d={id:'d'+Date.now(),date:dayDate.value||today(),water:w};days.push(d);saveLocal();renderDays();openDetail(d.id);showToast('Angeltag gespeichert')};
-editDay.onclick=()=>{let d=days.find(x=>x.id===currentId);if(!d)return;editDate.value=d.date;editWater.value=d.water;editError.textContent='';show('edit')};
-saveEdit.onclick=()=>{let d=days.find(x=>x.id===currentId);let w=editWater.value.trim().toUpperCase();if(!w){editError.textContent='Bitte eine Gewässernummer eingeben.';return}d.date=editDate.value;d.water=w;saveLocal();renderDays();openDetail(d.id);showToast('Angeltag geändert')};
-addCatch.onclick=()=>showToast('Fangerfassung folgt mit Code004');
-const modal=document.getElementById('modal');let confirmAction=null;function ask(title,text,action,confirmText='Bestätigen'){modalTitle.textContent=title;modalText.textContent=text;modalConfirm.textContent=confirmText;confirmAction=action;modal.classList.remove('hidden')};modalCancel.onclick=()=>modal.classList.add('hidden');modalConfirm.onclick=()=>{modal.classList.add('hidden');if(confirmAction)confirmAction()};
-deleteDay.onclick=()=>ask('Angeltag wirklich löschen?','Der Angeltag wird gelöscht. Später würden dabei auch alle zugehörigen Fänge gelöscht.',()=>{days=days.filter(x=>x.id!==currentId);saveLocal();renderDays();currentId=null;show('home');showToast('Angeltag gelöscht')},'Löschen');
-submitSeason.onclick=()=>ask('Fangbuch abgegeben?','Nach der Abgabe werden die Daten eingefroren. In der Preview wird dieser Schritt nicht dauerhaft ausgeführt.',()=>showToast('Preview: Saisonabschluss geprüft'),'Abgeben');
-renderDays();
+function clear(){overlay.innerHTML=''}
+function hotspot(x,y,w,h,label,onClick){const b=document.createElement('button');b.className='hotspot';b.style.cssText=`left:${x}%;top:${y}%;width:${w}%;height:${h}%`;b.setAttribute('aria-label',label);b.onclick=onClick;overlay.appendChild(b);return b}
+function field(x,y,w,h,type,value,cls=''){const i=document.createElement('input');i.className='field '+cls;i.type=type;i.value=value;i.style.cssText=`left:${x}%;top:${y}%;width:${w}%;height:${h}%`;overlay.appendChild(i);return i}
+function show(name){clear();img.src=assets[name];if(name==='home')home();if(name==='newDay')newDay();if(name==='detail')detail();if(name==='season')season();if(name==='report')report()}
+function home(){
+  hotspot(11.8,37.8,24.5,18.3,'Neuer Angeltag',()=>{editMode=false;show('newDay')});
+  hotspot(37.4,37.8,24.4,18.3,'Jahresauswertung',()=>show('report'));
+  hotspot(62.8,37.8,24.5,18.3,'Saison',()=>show('season'));
+  hotspot(16,89.1,21,7.2,'Angeltage',()=>show('home'));hotspot(40,89.1,21,7.2,'Auswertung',()=>show('report'));hotspot(65,89.1,21,7.2,'Saison',()=>show('season'));
+  if(days.length){
+    const list=document.createElement('div');list.className='dynamic-home-list';
+    days.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,3).forEach(d=>{const r=document.createElement('div');r.className='row';r.innerHTML=`<div><strong>${deDate(d.date)}</strong><small>${weekday(d.date)}</small></div><div class="sep"></div><div><strong>● ${d.water}</strong><small>Vereinsgewässer</small></div><div class="fishstate">🐟 kein Fang ›</div>`;r.onclick=()=>{currentId=d.id;show('detail')};list.appendChild(r)});overlay.appendChild(list);
+  } else {
+    hotspot(12,62.8,75,23,'Beispiel-Angeltage',()=>{});
+  }
+}
+function newDay(){
+  const existing=editMode&&currentId?days.find(d=>d.id===currentId):null;
+  const date=field(25.5,31.85,56.8,5.65,'date',existing?.date||today());
+  const water=field(25.5,42.95,56.8,5.65,'text',existing?.water||'','water');water.placeholder='z. B. D02-101';
+  if(editMode){
+    const title=document.createElement('div');title.className='detail-value';title.style.cssText='left:29%;top:15.1%;font-size:clamp(18px,4.5vw,38px);color:white;background:rgba(7,72,105,.45)';title.textContent='Angeltag bearbeiten';overlay.appendChild(title);
+  }
+  hotspot(12,9,12,6,'Zurück',()=>show(editMode?'detail':'home'));
+  hotspot(14.7,51.3,69.6,6.8,editMode?'Änderungen speichern':'Angeltag speichern',()=>{
+    const w=water.value.trim().toUpperCase();
+    if(!w){const e=document.createElement('div');e.className='error-note';e.style.cssText='left:26%;top:49.2%';e.textContent='Bitte eine Gewässernummer eingeben.';overlay.appendChild(e);return}
+    if(existing){existing.date=date.value||today();existing.water=w}else{const d={id:id(),date:date.value||today(),water:w};days.push(d);currentId=d.id}
+    save();show('detail');
+  });
+  hotspot(14.7,59.0,69.6,6.1,'Abbrechen',()=>show(editMode?'detail':'home'));
+  hotspot(16,89.1,21,7.2,'Angeltage',()=>show('home'));hotspot(40,89.1,21,7.2,'Auswertung',()=>show('report'));hotspot(65,89.1,21,7.2,'Saison',()=>show('season'));
+}
+function detail(){
+  let d=days.find(x=>x.id===currentId);if(!d){d=days.slice().sort((a,b)=>b.date.localeCompare(a.date))[0]||{id:'demo',date:'2026-10-02',water:'D02-101'};currentId=d.id}
+  const cover=document.createElement('div');cover.className='detail-cover';cover.innerHTML='<div class="icon">🐟</div><strong>Noch keine Fänge eingetragen</strong><span>Dieser Angeltag ist gültig und bleibt auch ohne Fang gespeichert.</span>';overlay.appendChild(cover);
+  const dv=document.createElement('div');dv.className='detail-value';dv.style.cssText='left:23.6%;top:23.2%';dv.textContent=deDate(d.date);overlay.appendChild(dv);
+  const wv=document.createElement('div');wv.className='detail-value';wv.style.cssText='left:54.1%;top:23.2%';wv.textContent=d.water;overlay.appendChild(wv);
+  hotspot(11.5,9.2,12,6.3,'Zurück',()=>show('home'));
+  hotspot(12,66.0,75,6.5,'Fang hinzufügen',()=>alert('Die Fangerfassung folgt in Code004.'));
+  hotspot(12,73.8,75,6.5,'Angeltag bearbeiten',()=>{editMode=true;show('newDay')});
+  hotspot(12,81.3,75,6.8,'Angeltag löschen',()=>confirmDelete(d));
+  hotspot(16,89.1,21,7.2,'Angeltage',()=>show('home'));hotspot(40,89.1,21,7.2,'Auswertung',()=>show('report'));hotspot(65,89.1,21,7.2,'Saison',()=>show('season'));
+}
+function confirmDelete(d){
+  const m=document.createElement('div');m.className='modal';m.innerHTML='<div class="modal-card"><h3>Angeltag wirklich löschen?</h3><p>Alle zu diesem Angeltag gespeicherten Fänge werden ebenfalls gelöscht.</p><div class="modal-actions"><button class="cancel">Abbrechen</button><button class="destructive">Löschen</button></div></div>';document.body.appendChild(m);
+  m.querySelector('.cancel').onclick=()=>m.remove();m.querySelector('.destructive').onclick=()=>{days=days.filter(x=>x.id!==d.id);save();currentId=null;m.remove();show('home')}
+}
+function season(){hotspot(16,89.1,21,7.2,'Angeltage',()=>show('home'));hotspot(40,89.1,21,7.2,'Auswertung',()=>show('report'));hotspot(65,89.1,21,7.2,'Saison',()=>show('season'));hotspot(13,38.7,73,8.1,'Fangbuch abgegeben',()=>alert('Saisonabschluss bleibt funktional auf Code002-Niveau; Bestätigungsdialog ist für die reale App verbindlich.'))}
+function report(){hotspot(16,89.1,21,7.2,'Angeltage',()=>show('home'));hotspot(40,89.1,21,7.2,'Auswertung',()=>show('report'));hotspot(65,89.1,21,7.2,'Saison',()=>show('season'))}
+document.getElementById('resetPreview').onclick=()=>{localStorage.removeItem(storeKey);days=[];currentId=null;show('home')};
+setTimeout(()=>show('home'),2200);
 })();
