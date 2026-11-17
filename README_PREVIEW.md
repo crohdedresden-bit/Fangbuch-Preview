@@ -1,12 +1,16 @@
-# Fangbuch Code003 Preview FIX3
+# Fangbuch Preview – Code004
 
-Korrekturstand innerhalb von Code003. Kein neuer Funktionsumfang.
+Interaktive GitHub-Pages-Vorschau für Code004.
 
-FIX3 korrigiert nicht nur Schriftgrößen, sondern die Geometrie der interaktiven Overlays:
-- Eingabefelder werden vollständig überdeckt und neu aufgebaut.
-- Startseiten-Liste überdeckt die komplette Beispielkarte.
-- Detailkarte überdeckt die vollständigen Beispieltexte.
-- Empty-State bleibt vollständig innerhalb der Fangliste und kollidiert nicht mit „Fang hinzufügen“.
-- Platzhalter: `z. B. D02-101`.
+## Neu
+- Fang hinzufügen
+- Hecht 55 cm -> ca. 1,0 kg aus Gewichtskurve
+- Mindestmaß / Schonzeit sichtbar
+- Gewicht manuell veränderbar
+- Fang wird im Angeltag angezeigt
+- Fang kann erneut geöffnet und gelöscht werden
+- Startseite zeigt Fanganzahl
+- neues, ausdrücklich freigegebenes Fischsymbol im Leerzustand
 
-Die acht Design-Lock-Bilder sind unverändert.
+## Design
+Alle LOCK-Screens bleiben die Grundlage. Außer dem ausdrücklich beauftragten Fischsymbol wurde kein bestehender Screen neu gestaltet.

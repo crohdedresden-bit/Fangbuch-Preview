@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "datasetVersion": "1.0",
+  "unit": {
+    "length": "cm",
+    "weight": "kg"
+  },
+  "source": {
+    "description": "Länge-Gewicht-Diagramme aus dem vom Nutzer bereitgestellten Fangbuch, Seiten 20 und 21.",
+    "digitization": "Fotobasierte manuelle/visuelle Digitalisierung der aufgedruckten Stützstellen; Gewichtswerte aus Gramm nach kg umgerechnet.",
+    "accuracyNote": "Längenwerte sind aus Fotos abgelesene Näherungswerte und auf ganze Zentimeter gerundet. Vor einer produktiven Veröffentlichung sollten die Punkte einmal gegen das gedruckte Original kontrolliert werden."
+  },
+  "interpolation": {
+    "method": "linear",
+    "outsideRange": "noEstimate"
+  },
+  "curves": [
+    {
+      "id": "aal",
+      "displayName": "Aal",
+      "sourcePage": 20,
+      "fishCodes": [
+        "A"
+      ],
+      "points": [
+        {
+          "lengthCm": 14,
+          "weightKg": 0.005
+        },
+        {
+          "lengthCm": 18,
+          "weightKg": 0.01
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.03
+        },
+        {
+          "lengthCm": 31,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 37,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 41,
+          "weightKg": 0.15
+        },
+        {
+          "lengthCm": 48,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 53,
+          "weightKg": 0.3
+        },
+        {
+          "lengthCm": 57,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 60,
+          "weightKg": 0.5
+        },
+        {
+          "lengthCm": 66,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 72,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 79,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 83,
+          "weightKg": 1.2
+        },
+        {
+          "lengthCm": 87,
+          "weightKg": 1.4
+        },
+        {
+          "lengthCm": 90,
+          "weightKg": 1.6
+        },
+        {
+          "lengthCm": 95,
+          "weightKg": 1.8
+        },
+        {
+          "lengthCm": 100,
+          "weightKg": 2.0
+        }
+      ]
+    },
+    {
+      "id": "barbe",
+      "displayName": "Barbe",
+      "sourcePage": 20,
+      "fishCodes": [
+        "Ba"
+      ],
+      "points": [
+        {
+          "lengthCm": 15,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 20,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 30,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 35,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 38,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 41,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 47,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 52,
+          "weightKg": 2.0
+        }
+      ]
+    },
+    {
+      "id": "barsch",
+      "displayName": "Barsch",
+      "sourcePage": 20,
+      "fishCodes": [
+        "B"
+      ],
+      "points": [
+        {
+          "lengthCm": 14,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 19,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 30,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 34,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 37,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 40,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 47,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 52,
+          "weightKg": 2.0
+        }
+      ]
+    },
+    {
+      "id": "brachse",
+      "displayName": "Brachse / Blei",
+      "sourcePage": 20,
+      "fishCodes": [
+        "Bl"
+      ],
+      "points": [
+        {
+          "lengthCm": 15,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 20,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 26,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 32,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 35,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 39,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 42,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 49,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 54,
+          "weightKg": 2.0
+        },
+        {
+          "lengthCm": 60,
+          "weightKg": 3.0
+        }
+      ]
+    },
+    {
+      "id": "doebel",
+      "displayName": "Döbel",
+      "sourcePage": 20,
+      "fishCodes": [
+        "D"
+      ],
+      "points": [
+        {
+          "lengthCm": 15,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 20,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 29,
+          "weightKg": 0.3
+        },
+        {
+          "lengthCm": 32,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 36,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 40,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 43,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 53,
+          "weightKg": 1.5
+        }
+      ]
+    },
+    {
+      "id": "grosse_maraene",
+      "displayName": "Große Maräne",
+      "sourcePage": 20,
+      "fishCodes": [
+        "GM"
+      ],
+      "points": [
+        {
+          "lengthCm": 35,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 42,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 50,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 55,
+          "weightKg": 1.4
+        },
+        {
+          "lengthCm": 59,
+          "weightKg": 1.8
+        },
+        {
+          "lengthCm": 62,
+          "weightKg": 2.2
+        }
+      ]
+    },
+    {
+      "id": "hecht",
+      "displayName": "Hecht",
+      "sourcePage": 21,
+      "fishCodes": [
+        "H"
+      ],
+      "points": [
+        {
+          "lengthCm": 19,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 31,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 40,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 46,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 51,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 55,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 65,
+          "weightKg": 1.8
+        },
+        {
+          "lengthCm": 69,
+          "weightKg": 2.0
+        },
+        {
+          "lengthCm": 78,
+          "weightKg": 3.0
+        },
+        {
+          "lengthCm": 84,
+          "weightKg": 4.0
+        },
+        {
+          "lengthCm": 89,
+          "weightKg": 5.0
+        },
+        {
+          "lengthCm": 93,
+          "weightKg": 6.0
+        },
+        {
+          "lengthCm": 96,
+          "weightKg": 7.0
+        },
+        {
+          "lengthCm": 98,
+          "weightKg": 8.0
+        }
+      ]
+    },
+    {
+      "id": "karpfen",
+      "displayName": "Karpfen",
+      "sourcePage": 21,
+      "fishCodes": [
+        "K"
+      ],
+      "points": [
+        {
+          "lengthCm": 13,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 18,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 24,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 30,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 34,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 37,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 40,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 44,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 49,
+          "weightKg": 2.0
+        },
+        {
+          "lengthCm": 55,
+          "weightKg": 3.0
+        },
+        {
+          "lengthCm": 60,
+          "weightKg": 4.0
+        },
+        {
+          "lengthCm": 64,
+          "weightKg": 5.0
+        }
+      ]
+    },
+    {
+      "id": "ploetze",
+      "displayName": "Plötze",
+      "sourcePage": 21,
+      "fishCodes": [
+        "Pl"
+      ],
+      "points": [
+        {
+          "lengthCm": 15,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 20,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 31,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 35,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 39,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 43,
+          "weightKg": 1.0
+        }
+      ]
+    },
+    {
+      "id": "salmoniden",
+      "displayName": "Salmoniden",
+      "sourcePage": 21,
+      "fishCodes": [
+        "Ä",
+        "L",
+        "Bf",
+        "Bs",
+        "Mf",
+        "Rf",
+        "Sf",
+        "Ss",
+        "KM"
+      ],
+      "points": [
+        {
+          "lengthCm": 16,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 19,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 30,
+          "weightKg": 0.3
+        },
+        {
+          "lengthCm": 34,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 39,
+          "weightKg": 0.6
+        },
+        {
+          "lengthCm": 44,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 47,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 54,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 59,
+          "weightKg": 2.0
+        },
+        {
+          "lengthCm": 67,
+          "weightKg": 3.0
+        },
+        {
+          "lengthCm": 73,
+          "weightKg": 4.0
+        },
+        {
+          "lengthCm": 79,
+          "weightKg": 5.0
+        },
+        {
+          "lengthCm": 82,
+          "weightKg": 6.0
+        },
+        {
+          "lengthCm": 86,
+          "weightKg": 7.0
+        },
+        {
+          "lengthCm": 90,
+          "weightKg": 8.0
+        },
+        {
+          "lengthCm": 92,
+          "weightKg": 9.0
+        },
+        {
+          "lengthCm": 95,
+          "weightKg": 10.0
+        },
+        {
+          "lengthCm": 97,
+          "weightKg": 11.0
+        }
+      ]
+    },
+    {
+      "id": "schleie",
+      "displayName": "Schleie",
+      "sourcePage": 21,
+      "fishCodes": [
+        "S"
+      ],
+      "points": [
+        {
+          "lengthCm": 14,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 18,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 23,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 27,
+          "weightKg": 0.3
+        },
+        {
+          "lengthCm": 32,
+          "weightKg": 0.5
+        },
+        {
+          "lengthCm": 36,
+          "weightKg": 0.8
+        },
+        {
+          "lengthCm": 39,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 45,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 50,
+          "weightKg": 2.0
+        }
+      ]
+    },
+    {
+      "id": "zander",
+      "displayName": "Zander",
+      "sourcePage": 21,
+      "fishCodes": [
+        "Z"
+      ],
+      "points": [
+        {
+          "lengthCm": 16,
+          "weightKg": 0.05
+        },
+        {
+          "lengthCm": 20,
+          "weightKg": 0.1
+        },
+        {
+          "lengthCm": 25,
+          "weightKg": 0.2
+        },
+        {
+          "lengthCm": 33,
+          "weightKg": 0.4
+        },
+        {
+          "lengthCm": 38,
+          "weightKg": 0.5
+        },
+        {
+          "lengthCm": 47,
+          "weightKg": 1.0
+        },
+        {
+          "lengthCm": 54,
+          "weightKg": 1.5
+        },
+        {
+          "lengthCm": 59,
+          "weightKg": 2.0
+        },
+        {
+          "lengthCm": 67,
+          "weightKg": 3.0
+        },
+        {
+          "lengthCm": 73,
+          "weightKg": 4.0
+        },
+        {
+          "lengthCm": 78,
+          "weightKg": 5.0
+        }
+      ]
+    }
+  ]
+}
