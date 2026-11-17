@@ -1,4 +1,3 @@
-Code003 Preview
+Code003 Preview FIX1
 Design-Lock v1.0
-Angeltag-Modul
-Stand: 17.11.2026
+Cache-Busting: eindeutige Asset-Dateinamen

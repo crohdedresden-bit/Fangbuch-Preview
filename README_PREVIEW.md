@@ -1,20 +1,7 @@
-# Fangbuch – Code003 Preview
+# Fangbuch Code003 Preview – FIX1
 
-Diese Preview gehört zu **Code003 – Angeltag-Modul**.
+Technische Korrektur der Code003-Preview.
 
-## Design-Lock
-Die Preview verwendet ausschließlich die acht vom Nutzer freigegebenen LOCK-Screens als visuelle Grundlage. Es wird keine alternative Designrichtung verwendet.
-
-## Testbare Funktionen
-- Splashscreen mindestens 2 Sekunden
-- Startseite
-- Neuer Angeltag
-- Pflichtfeld Gewässernummer
-- Angeltag ohne Fang
-- Speicherung im Browser (`localStorage`)
-- Detailansicht
-- Bearbeiten
-- Löschen mit Sicherheitsabfrage
-- Tabs zu Auswertung und Saison
-
-Die Fangerfassung ist noch nicht Bestandteil von Code003 und folgt in Code004.
+- Keine Designänderung.
+- Alle acht Bilder stammen unverändert aus Design-Lock v1.0.
+- Asset-, CSS- und JS-Dateien tragen eindeutige Code003/FIX1-Dateinamen, damit Browser keine alten Preview-Dateien aus dem Cache verwenden.
