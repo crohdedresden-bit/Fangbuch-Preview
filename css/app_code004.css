@@ -116,3 +116,48 @@ body{display:flex;justify-content:center;align-items:flex-start;padding:12px}
 .catch-info-dynamic .species-name{display:none}
 .catch-info-note{left:11.8%;top:65.1%;width:74.8%;height:7.1%;padding:0 3.0cqw 0 8.0cqw;background:#f3f9fe;border-radius:2.4cqw;font-size:2.6cqw}
 .catch-info-note:before{left:2.5cqw;font-size:4.1cqw}
+
+/* Code004 FIX1 – Fangerfassung: größere Felder, echte 2-Spalten-Zeilen,
+   Gewichts-Popup blockiert die Aktionsleiste nicht und Fischbild ist artabhängig. */
+.catch-form-grid{position:absolute;left:4.8%;top:25.8%;width:90.4%;height:20.2%;z-index:20;background:#fff;border-radius:3.2cqw;box-shadow:0 1cqw 3.4cqw rgba(0,55,75,.07);padding:2.2cqw;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:1.6cqw 1.8cqw;box-sizing:border-box}
+.cf-cell{display:flex;flex-direction:column;gap:.7cqw;min-width:0;color:#071b3f;font-weight:750}
+.cf-cell>span{font-size:2.55cqw;line-height:1}
+.cf-cell input,.cf-readonly,.cf-with-unit,#cfWeight{height:5.3cqw;min-height:40px;border:1px solid #c7d7e5;border-radius:1.4cqw;background:#fff;color:#071b3f;font:750 3.25cqw/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;box-sizing:border-box}
+.cf-cell input{width:100%;padding:0 1.2cqw;text-align:center;outline:0}
+.cf-readonly{display:flex;align-items:center;padding:0 1.2cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:2.95cqw}
+.cf-with-unit{display:flex;align-items:center;padding:0 1.0cqw}
+.cf-with-unit input{border:0;height:100%;padding:0 .6cqw;text-align:right;min-width:0}
+.cf-with-unit b{font-size:2.45cqw;color:#68788c;font-weight:650;flex:0 0 auto}
+.cf-weight-cell{grid-column:1/3}
+#cfWeight{width:100%;display:flex;align-items:center;gap:1.0cqw;padding:0 1.5cqw;border-color:#69b9f2;background:#eef8ff;cursor:pointer}
+#cfWeight strong{font-size:3.5cqw}
+#cfWeight b{font-size:2.7cqw}
+#cfWeight em{font-style:normal;font-size:2.7cqw;color:#2388db}
+#cfWeight i{margin-left:auto;font-style:normal;font-size:3.2cqw;color:#557089}
+.weight-popover{position:absolute;left:61%;top:43.1%;width:31%;height:22%;z-index:45;background:#fff;border-radius:2.6cqw;box-shadow:0 1.3cqw 4cqw rgba(0,40,75,.22);padding:1.2cqw;display:flex;flex-direction:column;gap:1cqw;box-sizing:border-box}
+.weight-popover.hidden{display:none}
+.weight-popover select{flex:1;width:100%;border:0;outline:0;background:#fff;color:#5f6f84;font:600 2.9cqw/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;text-align:center}
+.weight-popover button{height:4.6cqw;min-height:34px;border:0;border-radius:1.2cqw;background:#eef6fb;color:#174d70;font-weight:800;font-size:2.7cqw;cursor:pointer}
+.catch-action-button{position:absolute;top:88.0%;height:6.1%;z-index:60;border:0;border-radius:2.3cqw;font:800 3.2cqw/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;cursor:pointer}
+.catch-action-button.cancel{left:11.7%;width:34%;background:#f3f7f9;color:#163c67}
+.catch-action-button.save{left:47.7%;width:39.2%;background:linear-gradient(100deg,#1ca96e,#177fc6);color:#fff}
+.catch-fish-illustration{position:absolute;left:11.9%;top:50.1%;width:26.2%;height:12.2%;z-index:12;background:linear-gradient(135deg,#eefbf6,#dff5ef);border-radius:1.8cqw;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.species-fish-svg{display:block;width:100%;height:100%}
+.species-fish-svg.editor{width:23cqw;height:11cqw}
+.species-fish-svg.mini{width:6.3cqw;height:4.5cqw}
+.catch-species-name{left:12.7%;top:46.8%;width:25.8%;height:3.5%;padding-left:.8cqw;background:#eefbf6;font-size:3.65cqw}
+.catch-info-dynamic{left:39.3%;top:46.8%;width:46.1%;height:15.6%;padding:1.6cqw 2cqw}
+.catch-info-note{top:65.2%}
+.catch-error{top:82.2%;z-index:70}
+.catch-delete-test{top:82.9%;z-index:65}
+
+@media(max-width:700px){
+ .catch-form-grid{border-radius:16px;padding:10px;gap:8px 10px}
+ .cf-cell>span{font-size:12px}
+ .cf-cell input,.cf-readonly,.cf-with-unit,#cfWeight{min-height:42px;border-radius:8px;font-size:15px}
+ .cf-readonly{font-size:13px}
+ .cf-with-unit b{font-size:12px}
+ #cfWeight strong{font-size:16px} #cfWeight b,#cfWeight em{font-size:12px}
+ .catch-action-button{border-radius:12px;font-size:15px}
+ .weight-popover{border-radius:14px}
+}

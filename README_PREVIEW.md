@@ -1,16 +1,10 @@
-# Fangbuch Preview – Code004
+# Fangbuch Code004 FIX1 Preview
 
-Interaktive GitHub-Pages-Vorschau für Code004.
+Korrekturstand für Code004.
 
-## Neu
-- Fang hinzufügen
-- Hecht 55 cm -> ca. 1,0 kg aus Gewichtskurve
-- Mindestmaß / Schonzeit sichtbar
-- Gewicht manuell veränderbar
-- Fang wird im Angeltag angezeigt
-- Fang kann erneut geöffnet und gelöscht werden
-- Startseite zeigt Fanganzahl
-- neues, ausdrücklich freigegebenes Fischsymbol im Leerzustand
-
-## Design
-Alle LOCK-Screens bleiben die Grundlage. Außer dem ausdrücklich beauftragten Fischsymbol wurde kein bestehender Screen neu gestaltet.
+- Speichern/Abbrechen wieder bedienbar.
+- Fangerfassung mit größeren Eingabefeldern.
+- Datum/Gewässer in erster Zeile, Art/Länge in zweiter Zeile, Gewicht breit darunter.
+- Fischdarstellung wechselt abhängig vom Fischcode.
+- Seltene Arten erhalten eine neutrale schematische Darstellung.
+- Design-Lock v1.0 bleibt ansonsten unverändert.
